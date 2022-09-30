@@ -29,3 +29,22 @@ struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2){
 	return tempHead->next;
 }
 
+struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2){
+/* 要将两条链表合并，就要将两个链表的尾部合并，考虑递归
+ * 递归基：其中一个链表为空，将另一个链表接在已有链表尾部
+ */
+	if( list1 && !list2 )                         
+		return list1;
+	else if(list2 && !list1 )
+		return list2;
+	else if( !list1 && !list2 )
+		return NULL;
+	
+	if( list1->val < list2->val ){
+		list1->next = merge(list1->next,list2);
+		return list1;
+	}
+	else{
+		list2->next = mergeTwoLists(list1, list2->next);
+		return list2;
+	}

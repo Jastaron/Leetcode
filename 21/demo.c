@@ -48,3 +48,4 @@ struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2){
 		list2->next = mergeTwoLists(list1, list2->next);
 		return list2;
 	}
+}

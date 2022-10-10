@@ -11,10 +11,8 @@ MyCircularQueue* MyCircularQueueCreate(int k ){
 	q->size = 0;
 	q->capacity = k;
 	q->data = malloc( sizeof(int) * k );
-	q->rear = 0;
-	if( k == 1 )
-		q->front = 0;
-	else q->front = 1;         //除了leetcode用例，谁又会使用容量为1的队列呢~
+	q->rear = k - 1;      //将rear置于队列的最后一个位置,这样一次插入后，rear就可以和front处于一个位置
+	q->front = 0;
 	return q;
 }
 

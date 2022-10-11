@@ -1,5 +1,6 @@
 /* 根据floyd 判圈算法，对于两个人一快一慢，在同一位置（即使不在链表上)
  * 朝着同一方向前进，若链表有圈，则一定会相遇
+ * 具体介绍见网络
  */
 bool hasCycle(struct ListNode* head){
 	if( !head && !head->next )
